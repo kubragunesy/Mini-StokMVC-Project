@@ -1,0 +1,25 @@
+﻿@using stokMVC.Models.Entity;
+@model List<musteriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th> Musteri Id</th>
+        <th> Musteri Adı</th>
+        <th> Musteri Soyadı</th>
+    </tr>
+    <tbody>
+      @foreach (var mstri in Model)
+      {
+        <tr>
+            <th>@mstri.musteriId</th>
+            <td>@mstri.musteriAd</td>
+            <td>@mstri.musteriSoyad</td>
+        </tr>
+      }
+    </tbody>
+</table>
+
