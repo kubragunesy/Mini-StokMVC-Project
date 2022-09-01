@@ -16,5 +16,26 @@ namespace stokMVC.Controllers
             var degerler= db.kategoriler.ToList();
             return View(degerler);
         }
+        [HttpGet]
+        public ActionResult YeniKategori()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult YeniKategori(kategoriler p1)
+        {
+            db.kategoriler.Add(p1);
+            db.SaveChanges();
+            return View();
+        }
+        public ActionResult Sil(int id)
+        {
+            var kategori = db.kategoriler.Find(id);
+            db.kategoriler.Remove(kategori);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        
+        
     }
 }
