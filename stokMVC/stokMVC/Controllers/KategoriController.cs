@@ -36,6 +36,17 @@ namespace stokMVC.Controllers
             return RedirectToAction("Index");
         }
         
-        
+        public ActionResult KategoriGetir( int id)
+        {
+            var ktgr = db.kategoriler.Find(id);
+            return View("KategoriGetir", ktgr);
+        }
+        public ActionResult Guncelle(kategoriler p1)
+        {
+            var ktg= db.kategoriler.Find(p1.kategoriId);
+            ktg.kategoriAd = p1.kategoriAd;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -45,6 +45,10 @@ namespace stokMVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        //public ActionResult UrunGetir(int id)
+        //{
+        //    var urun=
+        //}
     }
     
 }

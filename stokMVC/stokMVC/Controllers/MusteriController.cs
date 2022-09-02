@@ -35,6 +35,19 @@ namespace stokMVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        public ActionResult MusteriGetir(int id)
+        {
+            var mus= db.musteriler.Find(id);
+            return View("MusteriGetir", mus);
+        }
+        public ActionResult Guncelle(musteriler m1)
+        {
+            var mustri=db.musteriler.Find(m1.musteriId);
+            mustri.musteriAd = m1.musteriAd;
+            mustri.musteriSoyad = m1.musteriSoyad;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+       
     }
 }
