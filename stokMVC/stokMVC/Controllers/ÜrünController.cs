@@ -45,10 +45,23 @@ namespace stokMVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        //public ActionResult UrunGetir(int id)
-        //{
-        //    var urun=
-        //}
+        public ActionResult UrunGetir(int id)
+        {
+            var urun = db.urunler.Find(id);
+            return View("UrunGetir", urun);
+        }
+        public ActionResult Guncelle (urunler n1)
+        {
+            var ur = db.urunler.Find(n1.urunId);
+            ur.urunId=n1.urunId;
+            ur.urunAd = n1.urunAd;
+            ur.marka = n1.marka;
+            ur.stok=n1.stok;
+            ur.fiyat=n1.fiyat;
+            ur.urunKategori = n1.urunKategori;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
     
 }
