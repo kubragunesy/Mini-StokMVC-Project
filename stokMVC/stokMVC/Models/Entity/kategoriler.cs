@@ -22,7 +22,7 @@ namespace stokMVC.Models.Entity
         }
     
         public short kategoriId { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Kategori Adi Giriniz")]
         public string kategoriAd { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

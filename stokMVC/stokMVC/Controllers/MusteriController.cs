@@ -24,6 +24,10 @@ namespace stokMVC.Controllers
         [HttpPost]
         public ActionResult YeniMusteri(musteriler p1)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("YeniMusteri");
+            }
             db.musteriler.Add(p1);
             db.SaveChanges();
             return View();

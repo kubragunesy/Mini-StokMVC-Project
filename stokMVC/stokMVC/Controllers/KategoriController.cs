@@ -24,6 +24,10 @@ namespace stokMVC.Controllers
         [HttpPost]
         public ActionResult YeniKategori(kategoriler p1)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("YeniKategori");
+            }
             db.kategoriler.Add(p1);
             db.SaveChanges();
             return View();

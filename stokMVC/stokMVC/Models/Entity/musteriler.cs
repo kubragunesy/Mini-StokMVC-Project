@@ -11,7 +11,8 @@ namespace stokMVC.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class musteriler
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,11 @@ namespace stokMVC.Models.Entity
         }
     
         public int musteriId { get; set; }
+        [Required(ErrorMessage ="Musteri Adi Giriniz")]
+        [StringLength(50,ErrorMessage ="Maksimum 50 karakter girilmelidir.")]
         public string musteriAd { get; set; }
+        [Required(ErrorMessage = "Musteri Soyadi Giriniz")]
+        [StringLength(50, ErrorMessage = "Maksimum 50 karakter girilmelidir.")]
         public string musteriSoyad { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
