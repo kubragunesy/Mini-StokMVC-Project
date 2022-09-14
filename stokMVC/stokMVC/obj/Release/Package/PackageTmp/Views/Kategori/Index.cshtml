@@ -1,0 +1,30 @@
+﻿@using stokMVC.Models.Entity;
+@model List<kategoriler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Kategori Id</th>
+        <th>Kategori Adı</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    <tbody>
+        @foreach( var ktgr in Model)
+            {
+                <tr>
+                    <th>@ktgr.kategoriId</th>
+                    <td>@ktgr.kategoriAd</td>
+                    <td><a href="/kategori/Sil/@ktgr.kategoriId" class="btn btn-danger">SİL</a></td>
+                    <td><a href="/kategori/KategoriGetir/@ktgr.kategoriId" class="btn btn-success">GÜNCELLE</a></td>
+                </tr>
+            }
+    </tbody>
+</table>
+
+<a href="/kategori/yenikategori/" class="btn btn-primary">YENİ KATEGORİ EKLE</a>
